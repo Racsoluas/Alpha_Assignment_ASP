@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
+
+
+    <link rel="stylesheet" href="https://kit.fontawesome.com/a576612222.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="site.css">
+    <title>Projects - BackOffice Alpha Portal</title>
+</head>
+<body>
+    
+    <div class="backoffice-wrapper">
+        <aside id="sidebar">
+            <section class="logotype"><a href="#"><img src="\Presentation\html_folder\logotypes\alpha-logotype.svg" alt="">
+                
+                <span>alpha</span></a>
+            </section>
+            <nav class="nav-links">
+                <a class="nav-link active" href="#"><i class="fa-duotone fa-solid fa-briefcase"></i>
+                <span>Projects</span></a>
+                <a class="nav-link" href="#"><i class="fa-duotone fa-solid fa-handshake"></i>
+                    <span>Clients</span></a>
+                <a class="nav-link" href="#"><i class="fa-duotone fa-solid fa-user-group"></i>
+                    <span>Members</span></a>
+                <a class="nav-link" href="#"><i class="fa-duotone fa-solid fa-gear"></i>
+                    <span>Settings</span></a>
+            </nav>
+
+        </aside>
+        <main>
+            <header id="header">
+                <form class="form-search" method="get" asp-controllers="" asp-action="" novalidate>
+                    <i class="fa-duotone fa-solid fa-magnifying-glass"></i>
+                    <input type="search" class="form-search-input" placeholder="Search..." />
+                </form>
+
+
+
+                <div class="notification-container">
+                    <button type="button" data-type="dropdown" data-target="#notifications-dropdown" class="btn-notification">
+                        <i class="dot dot-red fa-solid fa-circle"></i>
+                        <i class="fa-duotone fa-solid fa-bell" style="--fa-primary-opacity: 0.4; --fa-secondary-opacity: 1;"></i>
+                    </button>
+                    </div>
+                    <div id="notifications-dropdown" class="dropdown" >
+                        <div class="dropdown-header">
+                            <h4>Notifications</h4>
+                            <div class="badge badge-red">99+</div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="notifications">
+                            <div class="notification" data-notification-type="user">
+                                <div class="user-image">
+                                    <img src="\Presentation\html_folder\images\male-template-avatar.svg" alt="template avatar">
+                                </div>
+                                <span class="message">Oscar Funes Galindo signed in.</span>
+                                <span class="time">2 minutes ago</span>
+                                <button class="btn-remove">
+                                    
+                                </button>
+                            </div>
+
+                            <div class="notification" data-notification-type="user">
+                                <div class="user-image">
+                                    <img src="\Presentation\html_folder\images\male-template-avatar.svg" alt="template avatar">
+                                </div>
+                                <span class="message">Vladimir Funes Galindo signed in.</span>
+                                <span class="time">10 minutes ago</span>
+                                <button class="btn-remove">
+                                    
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div id="account-container">
+                        <button type="button" data-type="dropdown" data-target="#account-dropdown" class="btn-account">
+                            <img src="\Presentation\html_folder\images\male-template-avatar.svg" alt="template avatar">
+                        </button>                    
+                    <div id="account-dropdown" class="dropdown">
+                        <div class="dropdown-header">
+                            <div class="account-name">
+                                <img src="\Presentation\html_folder\images\male-template-avatar.svg" alt="template avatar">
+                                <span>Oscar Funes Galindo</span>
+                            </div>
+                        </div>
+                        <div class="dropdown-body">
+                            <nav class="dropdown-options">
+                                <div class="dropdown-option">
+                                    <label for="darkModeToggle" class="switch-label">
+                                        <i class="fa-duotone fa-solid fa-cog"></i>
+                                        <span>Dark mode</span>
+                                    </label>
+                                    <label for="darkModeToggle" class="switch">
+                                    <input type="checkbox" id="darkModeToggle" data-type="toggle" data-func="darkmode">
+                                    <span class="slider"></span>
+                                </label>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="divider"></div>
+                        <nav class="dropdown-actions">
+                        <a class="dropdown-action" href="#">
+                            <i class="fa-duotone fa-solid fa-right-from-bracket"></i>
+                            <span>Log out</span>
+                        </a>
+                    </nav>
+                    </div>
+                    </div>    
+            </header>
+            <div id="projects" class="page">
+                <div class="main-header">
+                    <h1>Projects</h1>
+                    <button type="button" class="btn" data-type="modal" data-target="#add-project-modal">
+                        <i class="fa-duotone fa-solid fa-plus"></i>
+                        <span>Add Project</span>
+                    </button>
+
+                </div>
+            </div>
+
+            <section class="project-list">
+                <div class="project card" data-project-id="1">
+                    <div class="card-header">
+                        <div class="project-image">
+                                <img src="\Presentation\html_folder\projects\project-alpha.svg" alt="template project">
+                            </div>
+                            <h6 class="project-name">Website Redesign</h6>
+                            <span class="client-name">GitLab Inc.</span>
+                            <div id="project-action-container">
+                                <button type="button" data-type="dropdown" data-target="#project-dropdown-1" class="btn-action">
+                                    <i class="fa-solid fa-ellipsis"></i>
+                                </button>
+                                <div id="project-dropdown-1" class="dropdown">
+                                    <div class="dropdown-body">
+                                        <nav class="dropdown-actions">
+                                            <button type="button" data-type="modal" data-target="#edit-project-modal" class="dropdown-action">
+                                                <i class="fa-duotone fa-solid fa-pen-to-square"></i>
+                                                <span>Edit</span>
+                                            </button>
+                                        </nav>
+                                        <nav class="dropdown-actions">
+                                            <button type="button" data-type="modal" data-target="#add-member-modal" class="dropdown-action">
+                                                <i class="fa-duotone fa-solid fa-user-plus" style="--fa-primary-opacity: 0.4; --fa-secondary-opacity: 1;"></i>
+                                                <span>Add Member</span>
+                                            </button>
+                                        </nav>
+                                        <div class="divider"></div>
+                                        <nav class="dropdown-actions">
+                                            <a class="dropdown-action remove" href="#">
+                                                <i class="fa-duotone fa-solid fa-trash"></i>
+                                                <span>Delete Project</span>
+                                            </a>
+                                        </nav>                                        
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                        
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="badge badge-normal time">
+                            <i class="fa-duotone fa-solid fa-clock"></i>
+                            <span>52 weeks left</span>
+                        </div>
+                        <div class="members">
+                            <div class="user-image">
+                                <img src="\Presentation\html_folder\images\male-template-avatar.svg" alt="template avatar">
+                            </div>
+                            <div class="user-image">
+                                <img src="\Presentation\html_folder\images\male-template-avatar.svg" alt="template avatar">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                
+               
+            </section>
+
+
+        </main>
+    </div>
+
+    <section id="add-project-modal" class="modal">
+        <div class="card">
+            <div class="card-header">
+                <h3>Add Project</h3>
+                <button class="btn-close" data-type="close" data-target="#add-project-modal" ></button>
+            </div>
+            <div class="card-body">
+                <form asp-controller="" asp-action="" method="post" enctype="multipart/form-data" novalidate>
+                    <div class="form-group">
+                        <div class="image-preview-container project-image" data-file-upload>
+                            <img class="hide" />
+                            <div class="circle circle-gray">
+                                <i class="fa-duotone fa-solid fa-camera"></i>
+                            </div>
+                            <input type="file" accept="image/*" hidden>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                    
+                    <div class="form-group">
+                        <label class="form-label">Project Name</label>
+                        <input type="text" class="form-input" placeholder="Project Name" />
+                    </div>
+                            <div class="form-group">
+                            <label class="form-label">Client Name</label>
+                            <div class="form-select" data-placeholder="Choose a client">
+                            <button type="button" class="form-select-trigger">
+                                <span class="form-select-text"></span>
+                            </button>
+                            <ul class="form-select-options">
+                                <li class="form-select-option" data-value="1">Client 1</li>
+                                <li class="form-select-option" data-value="2">Client 2</li>
+                                <li class="form-select-option" data-value="3">Client 3</li>
+                            </ul>
+                            <input type="hidden" name="client-select-value" />
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <div class="wysiwyg">
+                            <textarea id="add-project-description" data-quill-textarea="#add-project-description-wysiwyg-editor"></textarea>
+                            <div id="add-project-description-wysiwyg-editor" data-quill-editor data-quill-toolbar="add-project-description-wysiwyg-toolbar" class="wysiwyg-editor"></div>
+                        <div id="add-project-description-wysiwyg-toolbar" class="wysiwyg-toolbar">
+                        <span class="ql-formats">
+                            <button class="ql-bold"></button>
+                            <button class="ql-italic"></button>
+                            <button class="ql-underline"></button>                                                   
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-align" value=""></button>
+                            <button class="ql-align" value="center"></button>
+                            <button class="ql-align" value="right"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-list" value="bullet"></button>
+                            <button class="ql-list" value="ordered"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-link"></button>
+                        </span>
+                    </div>
+                    </div>
+                </div>
+
+
+
+
+                    <div class="form-horizontal-group">
+                        <div class="form-group">
+                            <label class="form-label">Start Date</label>
+                            <input type="date" class="form-input" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">End Date</label>
+                            <input type="date" class="form-input" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Member</label>
+                            <div class="form-select" data-placeholder="Choose a member">
+                            <button type="button" class="form-select-trigger">
+                                <span class="form-select-text"></span>
+                            </button>
+                            <ul class="form-select-options">
+                                <li class="form-select-option" data-value="1">Oscar Funes Galindo</li>
+                                <li class="form-select-option" data-value="2">Vladimir Funes Galindo</li>
+                                <li class="form-select-option" data-value="3">William Funes Galindo</li>
+                            </ul>
+                            <input type="hidden" name="member-select-value" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Budget</label>
+                        <div class="form-input-extended">
+                            <i class="fa-duotone fa-solid fa-dollar-sign"></i>
+                            <input type="text" class="form-input" placeholder="Budget" />
+                        </div>
+                        
+                    </div>
+                </form>
+
+                <button type="submit" class="btn">
+                    <span>Create</span>
+                </button>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="edit-project-modal" class="modal">
+        <div class="card">
+            <div class="card-header">
+                <h3>Edit Project</h3>
+                <button class="btn-close" data-type="close" data-target="#edit-project-modal" ></button>
+            </div>
+            <div class="card-body">
+                <form asp-controller="" asp-action="" method="post" enctype="multipart/form-data" novalidate>
+                    <div class="form-group">
+                        <div id="upload-trigger" class="image-preview-container project-image" data-file-upload>
+                            <img id="image-preview" src="#" class="hide" alt="Förhandsvisning av projektbild" />
+                            <div id="image-preview-icon-container" class="circle circle-gray">
+                                <i id="image-preview-icon" class="fa-duotone fa-solid fa-camera" style="--fa-primary-color: #bdbdbd; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 1;"></i>
+                            </div>
+                            <input type="file" id="image-upload" accept="image/*" hidden>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="form-group">
+                        <label class="form-label">Project Name</label>
+                        <input type="text" class="form-input" placeholder="Project Name" />
+                    </div>
+                            <div class="form-group">
+                            <label class="form-label">Client Name</label>
+                            <div class="form-select" data-placeholder="Choose a client">
+                            <button type="button" class="form-select-trigger">
+                                <span class="form-select-text"></span>
+                            </button>
+                            <ul class="form-select-options">
+                                <li class="form-select-option" data-value="1">Client 1</li>
+                                <li class="form-select-option" data-value="2">Client 2</li>
+                                <li class="form-select-option" data-value="3">Client 3</li>
+                            </ul>
+                            <input type="hidden" name="client-select-value" />
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <div class="wysiwyg">
+                        <textarea id="edit-project-description" data-quill-textarea="#edit-project-description-wysiwyg-editor"></textarea>
+                        <div id="edit-project-description-wysiwyg-editor" data-quill-editor data-quill-toolbar="edit-project-description-wysiwyg-toolbar" class="wysiwyg-editor"></div>
+                        <div id="edit-project-description-wysiwyg-toolbar" class="wysiwyg-toolbar">
+                        <span class="ql-formats">
+                            <button class="ql-bold"></button>
+                            <button class="ql-italic"></button>
+                            <button class="ql-underline"></button>                                                   
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-align" value=""></button>
+                            <button class="ql-align" value="center"></button>
+                            <button class="ql-align" value="right"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-list" value="bullet"></button>
+                            <button class="ql-list" value="ordered"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-link"></button>
+                        </span>
+                    </div>
+                    </div>
+                </div>
+
+
+
+
+                    <div class="form-horizontal-group">
+                        <div class="form-group">
+                            <label class="form-label">Start Date</label>
+                            <input type="date" class="form-input" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">End Date</label>
+                            <input type="date" class="form-input" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Member</label>
+                            <div class="form-select" data-placeholder="Choose a member">
+                            <button type="button" class="form-select-trigger">
+                                <span class="form-select-text"></span>
+                            </button>
+                            <ul class="form-select-options">
+                                <li class="form-select-option" data-value="1">Oscar Funes Galindo</li>
+                                <li class="form-select-option" data-value="2">Vladimir Funes Galindo</li>
+                                <li class="form-select-option" data-value="3">William Funes Galindo</li>
+                            </ul>
+                            <input type="hidden" name="member-select-value" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Budget</label>
+                        <div class="form-input-extended">
+                            <i class="fa-duotone fa-solid fa-dollar-sign"></i>
+                            <input type="text" class="form-input" placeholder="Budget" />
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Project Status</label>
+                        <div class="form-select" data-placeholder="Choose a status">
+                        <button type="button" class="form-select-trigger">
+                            <span class="form-select-text"></span>
+                        </button>
+                        <ul class="form-select-options">
+                            <li class="form-select-option" data-value="1">Started</li>
+                            <li class="form-select-option" data-value="2">Completed</li>
+                        </ul>
+                        <input type="hidden" name="client-select-value" value="1" />
+                    </div>
+                </div>
+
+
+
+                </form>
+
+                <button type="submit" class="btn">
+                    <span>Update</span>
+                </button>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <script src="site.js"></script>
+</body>
+</html>

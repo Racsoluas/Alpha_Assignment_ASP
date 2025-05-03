@@ -1,0 +1,6 @@
+﻿﻿<form asp-controller="Auth" asp-action="ExternalSignIn" method="post" class="external-account" novalidate>
+    <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+
+    <button type="submit" name="provider" value="Google" class="btn-grey btn-submit btn-google">Log in with Google</button>
+    <button type="submit" name="provider" value="GitHub" class="btn-grey btn-submit btn-github">Log in with GitHub</button>
+</form>

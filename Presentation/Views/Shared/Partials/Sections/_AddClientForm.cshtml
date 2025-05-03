@@ -1,0 +1,50 @@
+﻿@model AddClientModalViewModel
+
+<div id="addClientModal" class="modal">
+    <div class="modal-content">
+        
+        <div class="modal-header">
+            <h3>Add Client</h3>
+            <button type="button" class="btn-close" data-close="true"></button>
+        </div>
+
+        <form novalidate method="post" asp-action="Add" asp-controller="Clients">
+
+            <div class="image-previewer circle">
+                <img src="" class="image-preview" />
+                <input asp-for="ClientImage" accept="image/*" class="hide" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientName"></label>
+                <div class="field-group">
+                    <input asp-for="ClientName" />
+                    <span asp-validation-for="ClientName"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <div class="field-group">
+                    <input asp-for="Email" />
+                    <span asp-validation-for="Email"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location"></label>
+                <div class="field-group">
+                    <input asp-for="Location" />
+                    <span asp-validation-for="Location"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone"></label>
+                <div class="field-group">
+                    <input asp-for="Phone" />
+                    <span asp-validation-for="Phone"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-submit btn-blue">Create</button>
+        </form>
+
+
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@model ClientModel
+
+<tr class="c-card" data-client-id="@Model.Id">
+    <td class="client-info">
+        <img class="client-image" src="@Model.Image" alt="" />
+        <div class="client-name">@Model.ClientName</div>
+        <div class="client-email">@Model.Email</div>
+    </td>
+    <td class="client-location">@Model.Location</td>
+    <td class="client-phone">@Model.Phone</td>
+    <td id="client-actions-container">
+        <button type="button" data-type="dropdown" data-target="#client-dropdown-@Model.Id" class="btn-card-dots">
+            <img src="/images/more.svg" alt="">
+        </button>
+        <div id="client-dropdown-@Model.Id" class="dropdown">
+            <div class="dropdown-body">
+                <nav class="dropdown-actions">
+                    <button type="button" data-modal="true" data-target="#editClientModal" data-client-id="@Model.Id" class="dropdown-action">
+                        <i class="fa-duotone fa-solid fa-pen-to-square"></i>
+                        <span>Edit</span>
+                    </button>
+                </nav>
+                <div class="divider-line"></div>
+                <nav class="dropdown-actions">
+                    <a class="dropdown-action remove" href="@Url.Action("Delete", "Clients", new { id = Model.Id})">
+                        <i class="fa-duotone fa-solid fa-trash"></i>
+                        <span>Delete Client</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </td>
+</tr>

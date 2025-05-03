@@ -1,0 +1,42 @@
+﻿@model ClientsPageViewModel
+
+@{
+    ViewData["Title"] = "Clients";
+}
+
+<partial name="Partials/Sections/_AddClientForm" model="Model.AddClient" />
+<partial name="Partials/Sections/_EditClientForm" model="Model.EditClient" />
+
+<section id="clients">
+    <header>
+        <h2>@ViewData["Title"]</h2>
+        <button type="button" data-modal="true" data-target="#addClientModal" class="btn btn-add btn-blue">Add Client</button>
+    </header>
+    <div class="surface">
+        <div class="client-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="client-info">Client Name</th>
+                        <th class="client-location">Location</th>
+                        <th class="client-phone">Phone</th>
+                        <th class="client-actions"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var client in Model.Clients)
+                    {
+                        try
+                        {
+                            @await Html.PartialAsync("Partials/Components/_ClientCard", client)
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine(@ex.Message);
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

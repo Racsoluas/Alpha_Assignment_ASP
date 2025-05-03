@@ -1,0 +1,31 @@
+﻿@model MembersPageViewModel
+
+@{
+    ViewData["Title"] = "Team Members";
+}
+
+<partial name="Partials/Sections/_AddMemberForm" model="Model.AddMember"/>
+<partial name="Partials/Sections/_EditMemberForm" model="Model.EditMember"/>
+
+<section id="team-members">
+    <header>
+        <h2>@ViewData["Title"]</h2>
+        @if (User.IsInRole("Administrator"))
+        {
+            <button type="button" data-modal="true" data-target="#addMemberModal" class="btn btn-add btn-blue">Add Member</button>
+        }
+    </header>
+    <div class="m-page-content">
+        @foreach (var member in Model.Members)
+        {
+            try
+            {
+                @await Html.PartialAsync("Partials/Components/_MemberCard", member)
+            }
+            catch (Exception ex)
+            {
+                <div class="error">Failed to show members. @ex.Message</div>
+            }
+        }
+    </div>
+</section>

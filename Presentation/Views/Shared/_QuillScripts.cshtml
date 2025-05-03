@@ -1,0 +1,37 @@
+﻿﻿<script>
+     const addProjectDescriptionTextarea = document.getElementById('add-project-description');
+     const addProjectDescriptionEditor = document.getElementById('add-project-description-wysiwyg-editor');
+
+     if (addProjectDescriptionTextarea && addProjectDescriptionEditor) {
+         const quill = new Quill('#add-project-description-wysiwyg-editor', {
+             modules: {
+                 syntax: true,
+                 toolbar: '#add-project-description-wysiwyg-toolbar'
+             },
+             theme: 'snow',
+             placeholder: 'Type something'
+         });
+
+         quill.on('text-change', function () {
+             addProjectDescriptionTextarea.value = quill.root.innerHTML;
+         });
+     }
+
+     const editProjectDescriptionTextarea = document.getElementById('edit-project-description');
+     const editProjectDescriptionEditor = document.getElementById('edit-project-description-wysiwyg-editor');
+
+     if (editProjectDescriptionTextarea && editProjectDescriptionEditor) {
+         const quill = new Quill('#edit-project-description-wysiwyg-editor', {
+             modules: {
+                 syntax: true,
+                 toolbar: '#edit-project-description-wysiwyg-toolbar'
+             },
+             theme: 'snow',
+             placeholder: 'Type something'
+         });
+
+         quill.on('text-change', function () {
+             editProjectDescriptionTextarea.value = quill.root.innerHTML;
+         });
+     }
+</script>

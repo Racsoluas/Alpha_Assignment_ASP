@@ -1,0 +1,97 @@
+
+
+<!-- Form Group -->
+<div class="form-group">
+    <label class="form-label">Client</label>
+    <div class="form-select" data-placeholder="Choose a client">
+    <button type="button" class="form-select-trigger">
+        <span class="form-select-text"></span>
+    </button>
+    <ul class="form-select-options">
+        <li class="form-select-option" data-value="1">Client 1</li>
+        <li class="form-select-option" data-value="2">Client 2</li>
+        <li class="form-select-option" data-value="3">Client 3</li>
+    </ul>
+    <input type="hidden" name="form-select-value" />
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- Project Card -->
+<div class="project card" data-project-id="2">
+    <div class="card-header">
+        <div class="project-image">
+                <img src="\Presentation\html_folder\projects\project-alpha.svg" alt="template project">
+            </div>
+            <h6 class="project-name">Website Redesign</h6>
+            <span class="client-name">GitLab Inc.</span>
+            <div id="project-action-container">
+                <button type="button" data-type="dropdown" data-target="#project-dropdown-2" class="btn-action">
+                    <i class="fa-solid fa-ellipsis"></i>
+                </button>
+                <div id="project-dropdown-2" class="dropdown">
+                    <div class="dropdown-body">
+                        <nav class="dropdown-actions">
+                            <button type="button" data-type="modal" data-target="#edit-project-modal" class="dropdown-action">
+                                <i class="fa-duotone fa-solid fa-pen-to-square"></i>
+                                <span>Edit</span>
+                            </button>
+                        </nav>
+                        <nav class="dropdown-actions">
+                            <button type="button" data-type="modal" data-target="#add-member-modal" class="dropdown-action">
+                                <i class="fa-duotone fa-solid fa-user-plus" style="--fa-primary-opacity: 0.4; --fa-secondary-opacity: 1;"></i>
+                                <span>Add Member</span>
+                            </button>
+                        </nav>
+                        <div class="divider"></div>
+                        <nav class="dropdown-actions">
+                            <a class="dropdown-action remove" href="#">
+                                <i class="fa-duotone fa-solid fa-trash"></i>
+                                <span>Delete Project</span>
+                            </a>
+                        </nav>                                        
+                    </div>
+                </div>
+
+                
+            </div>
+        
+    </div>
+    <div class="card-body">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    </div>
+    <div class="card-footer">
+        <div class="badge badge-normal time">
+            <i class="fa-duotone fa-solid fa-clock"></i>
+            <span>52 weeks left</span>
+        </div>
+        <div class="members">
+            <div class="user-image">
+                <img src="\Presentation\html_folder\images\male-template-avatar.svg" alt="template avatar">
+            </div>
+            <div class="user-image">
+                <img src="\Presentation\html_folder\images\male-template-avatar.svg" alt="template avatar">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- gammal textarea-->
+<textarea id="edit-project-description"></textarea>
+<div id="edit-project-description-wysiwyg-editor" class="wysiwyg-editor"></div>
+
+
+<!-- gammal image upload -->
+<div id="upload-trigger" class="image-preview-container project-image">
+    <img id="image-preview" src="#" class="hide" />
+    <div id="image-preview-icon-container" class="circle circle-gray">
+        <i id="image-preview-icon" class="fa-duotone fa-solid fa-camera" style="--fa-primary-color: #bdbdbd; --fa-secondary-color: #ffffff; --fa-secondary-opacity: 1;"></i>
+    </div>
+</div>
+<input type="file" id="image-upload" accept="image/*">

@@ -1,0 +1,49 @@
+﻿@model Project
+
+<div class="p-card" data-project-id="@Model.Id">
+    <div class="p-card-top">
+        <div class="p-card-logo">
+            <img src="@Model.Image" alt="Project Image">
+        </div>
+        <div class="p-card-title">
+            <h6>@Model.ProjectName</h6>
+            <span>@Model.Client!.ClientName</span>
+        </div>
+        <div id="project-actions-container">
+            <button type="button" data-type="dropdown" data-target="#project-dropdown-@Model.Id" class="btn-card-dots">
+                <img src="/images/more.svg" alt="">
+            </button>
+            <div id="project-dropdown-@Model.Id" class="dropdown">
+                <div class="dropdown-body">
+                    <nav class="dropdown-actions">
+                        <button type="button" data-modal="true" data-target="#editProjectModal" data-project-id="@Model.Id" class="dropdown-action">
+                            <i class="fa-duotone fa-solid fa-pen-to-square"></i>
+                            <span>Edit</span>
+                        </button>
+                    </nav>
+                    <div class="divider-line"></div>
+                    <nav class="dropdown-actions">
+                        <a class="dropdown-action remove" href="@Url.Action("Delete", "Projects", new { id = Model.Id})">
+                            <i class="fa-duotone fa-solid fa-trash"></i>
+                            <span>Delete Project</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-card-mid">
+        @Html.Raw(Model.Description)
+    </div>
+    <div class="p-card-bottom">
+        <div class="p-card-time @Model.TimeLeftClass">
+            <i class="fa-sharp-duotone fa-solid fa-clock fa-lg"></i>
+            <span>@Model.TimeLeft</span>
+        </div>
+        <ul class="p-card-members">
+            <li>
+                <img src="@Model.User!.Image" alt="User avatar: @Model.User!.FirstName">
+            </li>
+        </ul>
+    </div>
+</div>

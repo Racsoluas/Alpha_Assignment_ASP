@@ -1,0 +1,52 @@
+﻿@model UserModel
+
+<div class="m-card" data-user-id="@Model.Id">
+    <div class="m-card-top">
+        @if (User.IsInRole("Administrator"))
+        {
+            <div id="member-actions-container">
+                <button type="button" data-type="dropdown" data-target="#member-dropdown-@Model.Id" class="btn-card-dots">
+                    <img src="/images/more.svg" alt="">
+                </button>
+                <div id="member-dropdown-@Model.Id" class="dropdown">
+                    <div class="dropdown-body">
+                        <nav class="dropdown-actions">
+                            <button type="button" data-modal="true" data-target="#editMemberModal" data-user-id="@Model.Id" class="dropdown-action">
+                                <i class="fa-duotone fa-solid fa-pen-to-square"></i>
+                                <span>Edit</span>
+                            </button>
+                        </nav>
+                        <div class="divider-line"></div>
+                        <nav class="dropdown-actions">
+                            <a class="dropdown-action remove" href="@Url.Action("Delete", "Members", new { id = Model.Id})">
+                                <i class="fa-duotone fa-solid fa-trash"></i>
+                                <span>Delete Member</span>
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        }
+        @if (!User.IsInRole("Administrator"))
+        {
+            <div class="transparent-box"></div>
+        }
+
+        <div class="m-card-avatar">
+            <img src="@Model.Image" alt="">
+        </div>
+    </div>
+    <div class="m-card-mid">
+        <div class="m-card-member">
+            <h4>@Model.FullName</h4>
+            <div class="m-card-jobtitle">
+                <span>@(Model.JobTitle == null ? "Student" : Model.JobTitle)</span>
+            </div>
+        </div>
+        <div class="m-card-contact">
+            <p>@Model.Email</p>
+            <p>@Model.PhoneNumber</p>
+        </div>
+        <button class="btn btn-grey btn-submit">Message</button>
+    </div>
+</div>

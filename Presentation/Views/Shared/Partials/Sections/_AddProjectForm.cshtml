@@ -1,0 +1,123 @@
+﻿@model AddProjectModalViewModel
+
+<div id="addProjectModal" class="modal">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h3>Add Project</h3>
+            <button type="button" class="btn-close" data-close="true"></button>
+        </div>
+
+        <form novalidate method="post" asp-action="Add" asp-controller="Projects" enctype="multipart/form-data">
+            <div class="image-previewer square">
+                <img src="" class="image-preview" />
+                <input asp-for="ProjectImage" accept="image/*" class="hide" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectName"></label>
+                <div class="field-group">
+                    <input asp-for="ProjectName" />
+                    <span asp-validation-for="ProjectName"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="ClientId"></label>
+                <div class="form-select" data-placeholder="Choose a client">
+                    <button type="button" class="form-select-trigger">
+                        <span class="form-select-text"></span>
+                    </button>
+                    <ul class="form-select-options">
+                        @foreach (var client in Model.Clients!)
+                        {
+                            <li class="form-select-option" data-value="@client.Id">@client.ClientName</li>
+                        }
+                    </ul>
+                    <input asp-for="ClientId" type="hidden" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <div class="wysiwyg">
+                    <textarea asp-for="Description" id="add-project-description"></textarea>
+                    <div id="add-project-description-wysiwyg-editor" class="wysiwyg-editor"></div>
+                    <div id="add-project-description-wysiwyg-toolbar" class="wysiwyg-toolbar">
+                        <span class="ql-formats">
+                            <button class="ql-bold"></button>
+                            <button class="ql-italic"></button>
+                            <button class="ql-underline"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-align" value=""></button>
+                            <button class="ql-align" value="center"></button>
+                            <button class="ql-align" value="right"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-list" value="bullet"></button>
+                            <button class="ql-list" value="ordered"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-link"></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-flex">
+                <div class="form-group">
+                    <label asp-for="StartDate"></label>
+                    <div class="field-group">
+                        <input asp-for="StartDate" />
+                        <span asp-validation-for="StartDate"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EndDate"></label>
+                    <div class="field-group">
+                        <input asp-for="EndDate" />
+                        <span asp-validation-for="EndDate"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="UserId"></label>
+                <div class="form-select" data-placeholder="Choose a member">
+                    <button type="button" class="form-select-trigger">
+                        <span class="form-select-text"></span>
+                    </button>
+                    <ul class="form-select-options">
+                        @foreach (var user in Model.Users!)
+                        {
+                            <li class="form-select-option" data-value="@user.Id">@user.SelectDisplayName</li>
+                        }
+                    </ul>
+                    <input asp-for="UserId" type="hidden" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Budget"></label>
+                <div class="form-input-extended">
+                    <i class="fa-duotone fa-solid fa-dollar-sign"></i>
+                    <div class="field-group">
+                        <input asp-for="Budget" />
+                        <span asp-validation-for="Budget"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="StatusId"></label>
+                <div class="form-select" data-placeholder="Choose a status">
+                    <button type="button" class="form-select-trigger">
+                        <span class="form-select-text"></span>
+                    </button>
+                    <ul class="form-select-options">
+                        @foreach (var status in Model.Statuses!)
+                        {
+                            <li class="form-select-option" data-value="@status.Id">@status.StatusName</li>
+                        }
+                    </ul>
+                    <input asp-for="StatusId" type="hidden" />
+                </div>
+            </div>
+            <button type="submit" class="btn btn-submit btn-blue">Create</button>
+        </form>
+    </div>
+</div>

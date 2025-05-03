@@ -1,0 +1,45 @@
+﻿﻿<div id="header">
+    <form class="search-form" method="get" asp-controller="" asp-action="" novalidate>
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" class="form-seach-input" placeholder="Search anything..." />
+    </form>
+
+    <partial name="Partials/Components/_NotificationDropdownPartial" />
+
+    <div id="account-container">
+        <button type="button" data-type="dropdown" data-target="#account-dropdown" class="btn-account">
+            <img src="@User.FindFirst("DisplayImage")?.Value" alt="user avatar" />
+        </button>
+        <div id="account-dropdown" class="dropdown">
+            <div class="dropdown-header">
+                <div class="account-name">
+                    <div class="account-name-image-container">
+                        <img src="@User.FindFirst("DisplayImage")?.Value" alt="user avatar" />
+                    </div>
+                    <span>@User.FindFirst("DisplayName")?.Value</span>
+                </div>
+            </div>
+            <div class="dropdown-body">
+                <nav class="dropdown-options">
+                    <div class="dropdown-option">
+                        <label for="darkModeToggle" class="switch-label">
+                            <i class="fa-duotone fa-solid fa-cog"></i>
+                            <span>Dark Mode</span>
+                        </label>
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle" data-type="toggle" data-func="darkmode" />
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </nav>
+                <div class="divider-line"></div>
+                <nav class="dropdown-actions">
+                    <a asp-controller="Auth" asp-action="Logout" class="dropdown-action">
+                        <i class="fa-duotone fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
