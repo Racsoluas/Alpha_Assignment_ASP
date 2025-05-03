@@ -1107,7 +1107,7 @@ textarea,
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: #b49801;
+        background-color: #9999FF;
         -webkit-transition: .4s;
         transition: .4s;
     }
@@ -1157,7 +1157,7 @@ textarea,
 }
 
 .settings {
-    background-color: #ffdb00;
+    background-color: #CCCCFF;
     padding: 3rem 2rem;
     display: grid;
     grid-template-rows: auto 1fr auto;
