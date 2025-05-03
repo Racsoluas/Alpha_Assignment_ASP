@@ -1,0 +1,16 @@
+﻿﻿DROP TABLE Projects
+DROP TABLE Clients
+DROP TABLE Status
+DROP TABLE MemberAddresses
+DROP TABLE AspNetUserTokens
+DROP TABLE AspNetUserLogins
+DROP TABLE AspNetUserClaims
+DROP TABLE AspNetUserRoles
+DROP TABLE AspNetRoleClaims
+DROP TABLE AspNetRoles
+DROP TABLE DismissedNotifications
+DROP TABLE AspNetUsers
+DROP TABLE Notifications
+DROP TABLE NotificationTargetGroups
+DROP TABLE NotificationTypes
+DROP TABLE __EFMigrationsHistory

@@ -1036,7 +1036,7 @@ textarea,
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #0000009d;
+    background-color: var(--mint-sky-gradient);
     display: none;
     align-items: center;
     justify-content: center;

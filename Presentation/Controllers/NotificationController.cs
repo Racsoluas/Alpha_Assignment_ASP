@@ -1,7 +1,6 @@
 ﻿using Business.Hubs;
 using Business.Services;
 using Data.Enteties.Notifications;
-using Data.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
