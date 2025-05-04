@@ -105,57 +105,57 @@ app.UseCookiePolicy();
 app.UseAuthentication();
 app.UseAuthorization();
 
-//using (var scope = app.Services.CreateScope())
-//{
-//    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-//    string[] roleNames = ["Administrator", "User"];
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    string[] roleNames = ["Administrator", "User"];
 
-//    foreach (var roleName in roleNames)
-//    {
-//        var exists = await roleManager.RoleExistsAsync(roleName);
-//        if (!exists)
-//        {
-//            await roleManager.CreateAsync(new IdentityRole(roleName));
-//        }
-//    }
+    foreach (var roleName in roleNames)
+    {
+        var exists = await roleManager.RoleExistsAsync(roleName);
+        if (!exists)
+        {
+            await roleManager.CreateAsync(new IdentityRole(roleName));
+        }
+    }
 
-//    var db = scope.ServiceProvider.GetRequiredService<DataContext>();
+    var db = scope.ServiceProvider.GetRequiredService<DataContext>();
 
-//    string[] statusesToSeed = ["Scheduled", "In Progress", "Completed"];
+    string[] statusesToSeed = ["Scheduled", "In Progress", "Completed"];
 
-//    foreach (var statusName in statusesToSeed)
-//    {
-//        var exists = await db.Status.AnyAsync(s => s.StatusName == statusName);
-//        if (!exists)
-//        {
-//            db.Status.Add(new StatusEntity { StatusName = statusName });
-//        }
-//    }
+    foreach (var statusName in statusesToSeed)
+    {
+        var exists = await db.Status.AnyAsync(s => s.StatusName == statusName);
+        if (!exists)
+        {
+            db.Status.Add(new StatusEntity { StatusName = statusName });
+        }
+    }
 
-//    string[] notificationTypesToSeed = ["User", "Project"];
+    string[] notificationTypesToSeed = ["User", "Project"];
 
-//    foreach (var notificationType in notificationTypesToSeed)
-//    {
-//        var exists = await db.NotificationTypes.AnyAsync(s => s.NotificationType == notificationType);
-//        if (!exists)
-//        {
-//            db.NotificationTypes.Add(new NotificationTypeEntity { NotificationType = notificationType });
-//        }
-//    }
+    foreach (var notificationType in notificationTypesToSeed)
+    {
+        var exists = await db.NotificationTypes.AnyAsync(s => s.NotificationType == notificationType);
+        if (!exists)
+        {
+            db.NotificationTypes.Add(new NotificationTypeEntity { NotificationType = notificationType });
+        }
+    }
 
-//    string[] notificationTargetGroupsToSeed = ["AllUsers", "Admins"];
+    string[] notificationTargetGroupsToSeed = ["AllUsers", "Admins"];
 
-//    foreach (var notificationTargetGroup in notificationTargetGroupsToSeed)
-//    {
-//        var exists = await db.NotificationTargetGroups.AnyAsync(s => s.TargetGroup == notificationTargetGroup);
-//        if (!exists)
-//        {
-//            db.NotificationTargetGroups.Add(new NotificationTargetGroupEntity { TargetGroup = notificationTargetGroup });
-//        }
-//    }
+    foreach (var notificationTargetGroup in notificationTargetGroupsToSeed)
+    {
+        var exists = await db.NotificationTargetGroups.AnyAsync(s => s.TargetGroup == notificationTargetGroup);
+        if (!exists)
+        {
+            db.NotificationTargetGroups.Add(new NotificationTargetGroupEntity { TargetGroup = notificationTargetGroup });
+        }
+    }
 
-//    await db.SaveChangesAsync();
-//}
+    await db.SaveChangesAsync();
+}
 
 app.MapStaticAssets();
 

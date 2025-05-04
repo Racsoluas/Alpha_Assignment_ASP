@@ -13,7 +13,7 @@ namespace Data.Factories
         public DataContext CreateDbContext(string[] args)
         {
             // Gå från Data/Factories/bin/... till lösningens rot
-            var basePath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "WebApp"));
+            var basePath = Path.GetFullPath(Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "..", "Presentation"));
 
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(basePath)
@@ -43,7 +43,7 @@ namespace Data.Factories
 //    {
 //        public DataContext CreateDbContext(string[] args)
 //        {
-//            var appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "WebApp", "appsettings.json");
+//            var appSettingsPath = Path.Combine(Directory.GetCurrentDirectory(), "..", "Presentation", "appsettings.json");
 
 //            var configuration = new ConfigurationBuilder()
 //                .SetBasePath(Path.GetDirectoryName(appSettingsPath)!)
