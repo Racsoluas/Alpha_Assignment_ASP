@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Data.Factories
 {
-    internal class DataContextFactory : IDesignTimeDbContextFactory<DataContext>
+    public class DataContextFactory : IDesignTimeDbContextFactory<DataContext>
     {
         public DataContext CreateDbContext(string[] args)
         {
