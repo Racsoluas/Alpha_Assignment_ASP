@@ -30,7 +30,7 @@ public class AuthController(IAuthService authService, SignInManager<UserEntity> 
 
         if (ModelState.IsValid)
         {
-            var signUpFormData = model.MapTo<SignUpFormData>();
+            var signUpFormData = model.MapTo<SignUpDataForm>();
             _ = await _authService.SignUpAsync(signUpFormData);
             return RedirectToAction("SignIn", "Auth");
         }
@@ -60,7 +60,7 @@ public class AuthController(IAuthService authService, SignInManager<UserEntity> 
 
         if (ModelState.IsValid)
         {
-            var signInFormData = model.MapTo<SignInFormData>();
+            var signInFormData = model.MapTo<SignInDataForm>();
             var result = await _authService.SignInAsync(signInFormData);
             if (result.Succeeded)
             {

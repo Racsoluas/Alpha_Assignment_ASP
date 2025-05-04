@@ -11,7 +11,7 @@ namespace Business.Services;
 public interface IUserService
 {
     Task<UserResult> AddUserToRoleAsync(string userId, string roleName);
-    Task<UserResult> CreateUserAsync(SignUpFormData formData, string roleName = "User");
+    Task<UserResult> CreateUserAsync(SignUpDataForm formData, string roleName = "User");
     Task<UserResult> DeleteUserAsync(string id);
     Task<UserResult> GetUserAsync(string id);
     Task<UserResult> GetUsersAsync();
@@ -62,7 +62,7 @@ public class UserService(IUserRepository userRepository, UserManager<UserEntity>
             : new UserResult { Succeeded = false, StatusCode = 500, Error = "Unable to add user to role." };
     }
 
-    public async Task<UserResult> CreateUserAsync(SignUpFormData formData, string roleName = "User")
+    public async Task<UserResult> CreateUserAsync(SignUpDataForm formData, string roleName = "User")
     {
         if (formData == null)
             return new UserResult { Succeeded = false, StatusCode = 400, Error = "Form data can not be null." };

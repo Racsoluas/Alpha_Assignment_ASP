@@ -9,9 +9,9 @@ namespace Business.Services;
 
 public interface IAuthService
 {
-    Task<AuthResult> SignInAsync(SignInFormData formData);
+    Task<AuthResult> SignInAsync(SignInDataForm formData);
     Task<AuthResult> SignOutAsync();
-    Task<AuthResult> SignUpAsync(SignUpFormData formData);
+    Task<AuthResult> SignUpAsync(SignUpDataForm formData);
 }
 
 public class AuthService(IUserService userService, SignInManager<UserEntity> signInManager, INotificationService notificationService, UserManager<UserEntity> userManager) : IAuthService
@@ -22,7 +22,7 @@ public class AuthService(IUserService userService, SignInManager<UserEntity> sig
     private readonly INotificationService _notificationService = notificationService;
 
 
-    public async Task<AuthResult> SignInAsync(SignInFormData formData)
+    public async Task<AuthResult> SignInAsync(SignInDataForm formData)
     {
         if (formData == null)
             return new AuthResult { Succeeded = false, StatusCode = 400, Error = "Not all required fields are supplied." };
@@ -49,7 +49,7 @@ public class AuthService(IUserService userService, SignInManager<UserEntity> sig
             : new AuthResult { Succeeded = false, StatusCode = 401, Error = "Invalid email of password." };
     }
 
-    public async Task<AuthResult> SignUpAsync(SignUpFormData formData)
+    public async Task<AuthResult> SignUpAsync(SignUpDataForm formData)
     {
         if (formData == null)
             return new AuthResult { Succeeded = false, StatusCode = 400, Error = "Not all required fields are supplied." };

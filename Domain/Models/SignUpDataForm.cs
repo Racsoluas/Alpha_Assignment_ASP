@@ -1,6 +1,6 @@
 ﻿namespace Domain.Models;
 
-public class SignUpFormData
+public class SignUpDataForm
 {
     public string? Image { get; set; }
     public string FirstName { get; set; } = null!;

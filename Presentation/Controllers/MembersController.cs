@@ -71,7 +71,7 @@ public class MembersController(IUserService userService, IWebHostEnvironment env
             imagePath = "/Images/templates/user-template.svg";
         }
 
-        var formData = model.MapTo<SignUpFormData>();
+        var formData = model.MapTo<SignUpDataForm>();
         formData.Image = imagePath;
 
         var result = await _userService.CreateUserAsync(formData);
